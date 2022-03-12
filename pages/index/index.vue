@@ -65,10 +65,10 @@
 					                    'https://cdn.uviewui.com/uview/swiper/swiper3.png',
 				],
 				text1: '投资充值请联系客服！投资充值请联系客服！投资充值请联系客服！'
-			}
+			} 
 		},
 		onLoad() {
-
+			
 		},
 		methods: {
 			change() {

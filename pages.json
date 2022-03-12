@@ -33,6 +33,9 @@
 		},
 		{
 			"path":"pages/investment-detail/index"
+		},
+		{
+			"path":"pages/just-bid/index"
 		}
 	],
 	"globalStyle": {
