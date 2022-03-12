@@ -33,24 +33,6 @@
 		},
 		{
 			"path":"pages/investment-detail/index"
-		},
-		{
-			"path":"pages/investment-record/index"
-		},
-		{
-			"path":"pages/revenue-record/index"
-		},
-		{
-			"path":"pages/promotion-record/index"
-		},
-		{
-			"path":"pages/recharge-record/index"
-		},
-		{
-			"path":"pages/withdrawal-record/index"
-		},
-		{
-			"path":"pages/just-bid/index"
 		}
 	],
 	"globalStyle": {

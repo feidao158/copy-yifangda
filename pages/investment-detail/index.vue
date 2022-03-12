@@ -41,7 +41,7 @@
 				<view class="value">本金保障</view>
 			</view>
 			
-			<u-line-progress :percentage="30" height="32"></u-line-progress>
+			<u-line-progress :percentage="30" activeColor="#3582b3" height="32"></u-line-progress>
 		</view>
 		<!-- end.. -->
 		
@@ -67,6 +67,13 @@
 		</view>
 		
 		
+		<view class="footer-action">
+			<view class="btn" @click="confirmAction">
+				立即投资
+			</view>
+		</view>
+		
+		
 	</view>
 </template>
 
@@ -81,6 +88,11 @@ export default {
 		tabHandler(target) {
 			this.tabActiveIndex = target.index
 			
+		},
+		confirmAction() {
+			uni.navigateTo({
+				url: '../just-bid/index'
+			})
 		}
 	}
 }
@@ -131,6 +143,7 @@ export default {
 	}
 	
 	.detail-info {
+		margin-bottom: 140rpx;
 		.table-info {
 			margin-top: 20rpx;
 			.table-item {
@@ -156,6 +169,23 @@ export default {
 			padding: 20rpx;
 			margin-top: 10rpx;
 			border: 1px solid #333333;
+		}
+	}
+	
+	.footer-action {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		position: fixed;
+		bottom: 20rpx;
+		.btn {
+			width: 620rpx;
+			background-color:#3582b3;
+			text-align: center;
+			border-radius: 20rpx;
+			height: 80rpx;
+			line-height: 80rpx;
+			color: #fff;
 		}
 	}
 	

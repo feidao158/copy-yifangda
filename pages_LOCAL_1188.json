@@ -48,9 +48,6 @@
 		},
 		{
 			"path":"pages/withdrawal-record/index"
-		},
-		{
-			"path":"pages/just-bid/index"
 		}
 	],
 	"globalStyle": {

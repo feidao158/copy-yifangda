@@ -35,6 +35,7 @@
 			"path":"pages/investment-detail/index"
 		},
 		{
+<<<<<<< HEAD
 			"path":"pages/investment-record/index"
 		},
 		{
@@ -48,9 +49,9 @@
 		},
 		{
 			"path":"pages/withdrawal-record/index"
-		},
-		{
+=======
 			"path":"pages/just-bid/index"
+>>>>>>> b0c15aca611a26d502bf20aba81e0ae0833c27b7
 		}
 	],
 	"globalStyle": {
