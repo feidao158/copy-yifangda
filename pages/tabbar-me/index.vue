@@ -101,13 +101,37 @@
 				});
 			},
 			changeClick(index) {
-				
 				switch(index){
 					case 1:
 						uni.navigateTo({
 							url: '../captial-record/index'
 						})
 						break
+					case 2: 
+						uni.navigateTo({
+							url: '../investment-record/index'
+						})
+						break
+					case 3:
+					     uni.navigateTo({
+					     	url:'../revenue-record/index'
+					     })
+						 break
+					case 4:
+						uni.navigateTo({
+							url:'../promotion-record/index'
+						})
+						break
+					case 5:
+							uni.navigateTo({
+								url:'../recharge-record/index'
+							})
+							break
+					case 6:
+							uni.navigateTo({
+								url:'../withdrawal-record/index'
+							})
+							break
 				}
 				
 				
