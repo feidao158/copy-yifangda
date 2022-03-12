@@ -28,7 +28,7 @@
 			</view>
 			
 			<view class="card-list">
-				<view class="card-item" v-for="(item,index) in 4" :key="index">
+				<view class="card-item" v-for="(item,index) in 4" :key="index" @click="openDetail">
 					<view class="param-list">
 						<view class="param-item" v-for="item in 4">
 							<view class="value">
@@ -73,6 +73,11 @@
 		methods: {
 			change() {
 				console.log('swiper change...')
+			},
+			openDetail() {
+				uni.navigateTo({
+					url: '../investment-detail/index'
+				})
 			}
 		}
 	}
