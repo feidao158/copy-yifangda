@@ -1,0 +1,232 @@
+<template>
+	<view>
+		<view class="user-card">
+			<view class="account-info">
+				<view class="account-number">
+					<text>我的账户:</text>
+					<text>18660403850</text>
+				</view>
+				<view class="account-role">
+					<text>用户等级:</text>
+					<text>普通会员</text>
+				</view>
+			</view>
+			
+			<view style="display: flex;justify-content: center;">
+				<view class="amount-info">
+					<view class="money">24.00</view>
+					<view class="desc">账户余额（元）账户积分（0.00）</view>
+				</view>
+			</view>
+			
+			
+			<view class="footer-info">
+				<view class="footer-item">
+					<view class="desc-value">0</view>
+					<view class="desc-label">代收利息（元）</view>
+				</view>
+				
+				<view class="footer-item">
+					<view class="desc-value">0</view>
+					<view class="desc-label">代收本金（元）</view>
+				</view>
+			</view>
+			
+			<view class="action-list">
+				<view class="action-btn">充值</view>
+				<view class="action-btn" @click="Withdrawal(item)">提现</view>
+			</view>
+			
+			<view class="menu-list">
+				<view class="menu-item" v-for="(item,index) in listData" :key="index" @click="changeClick(index)">
+					<view class="icon">
+						<u-icon size="60" :name="item.icon" color="#2979ff" ></u-icon>
+					</view>
+					<view class="title">
+						{{item.title}}
+					</view>
+				</view>
+			</view>
+			
+			<view class="footer-action">
+				<view class="btn">安全退出</view>
+			</view>
+			
+			
+			
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				listData: [
+					{
+						icon: 'photo',
+						title: '每日签到'
+					},
+					{
+						icon: 'photo',
+						title: '资金明细'
+					},
+					{
+						icon: 'photo',
+						title: '投资记录'
+					},
+					{
+						icon: 'photo',
+						title: '收益记录'
+					},
+					{
+						icon: 'photo',
+						title: '推广记录'
+					},
+					{
+						icon: 'photo',
+						title: '充值记录'
+					},
+					{
+						icon: 'photo',
+						title: '提现记录'
+					}	
+				]
+			}
+		},
+		methods:{
+			Withdrawal(item) {
+				uni.navigateTo({
+				    url: '/pages/withdrawal/index'
+				});
+			},
+			changeClick(index) {
+				
+				switch(index){
+					case 1:
+						uni.navigateTo({
+							url: '../captial-record/index'
+						})
+						break
+				}
+				
+				
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	
+	page {
+		background-color: #ddd;
+	}
+	
+	.user-card {
+		position: relative;
+		width: 100%;
+		height: 400rpx;
+		
+		background: linear-gradient(to bottom, #45c7f2, 45%, #592fca);
+		.account-info {
+			display: flex;
+			justify-content: space-between;
+			box-sizing: border-box;
+			padding: 40rpx;
+			font-size: 22rpx;
+			color: #fff;
+		}
+		.amount-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			color: #fff;
+			.money {
+				font-size: 60rpx;
+			}
+			.desc {
+				margin-top: 20rpx;
+			}
+		}
+		.footer-info {
+			position: absolute;
+			bottom: 0rpx;
+			height: 100rpx;
+			width: 100%;
+			background: rgba(255,255,255,.2);
+			display: flex;
+			.footer-item {
+				color: #fff;
+				font-size: 22rpx;
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-around;
+				box-sizing: border-box;
+				padding: 10rpx 0;
+				
+			}
+		}
+		
+		.action-list {
+			
+			box-sizing: border-box;
+			padding: 0 20rpx;
+			margin-top: 150rpx;
+			background-color: #ddd;
+			
+			height: 100rpx;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			
+			.action-btn {
+				width: 340rpx;
+				
+				height: 68rpx;
+				line-height: 68rpx;
+				text-align: center;
+				background-color: #2C405A;
+				color: #fff;
+				border-radius: 8rpx;
+			}
+		}
+		
+		
+		.menu-list {
+			background-color: #fff;
+			.menu-item {
+				display: flex;
+				height: 80rpx;
+				align-items: center;
+				box-sizing: border-box;
+				padding: 20rpx;
+				border-bottom: 1rpx solid #DCDFE6;
+			}
+			.title {
+				margin-left: 12rpx;
+				
+			}
+		}
+		
+		.footer-action {
+			display: flex;
+			justify-content: center;
+			box-sizing: border-box;
+			padding: 0 40rpx;
+			.btn {
+				background-color: #2C405A;
+				color: #fff;
+				border-radius: 8rpx;
+				width: 100%;
+				text-align: center;
+				height: 80rpx;
+				line-height: 80rpx;
+				margin-top: 40rpx;
+			}
+			
+		}
+		
+	}
+</style>
