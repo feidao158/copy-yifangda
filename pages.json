@@ -51,6 +51,12 @@
 		},
 		{
 			"path":"pages/just-bid/index"
+		},
+		{
+			"path":"pages/login/index"
+		},
+		{
+			"path":"pages/register/index"
 		}
 	],
 	"globalStyle": {
