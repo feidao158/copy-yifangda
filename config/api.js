@@ -16,7 +16,12 @@ export const queryExtensionRecord = (params) => http.get('/api/userinfo/queryExt
 export const queryInvestmentRecord = (params) => http.get('/api/userinfo/queryInvestmentLog',{params})
 
 
+
 export const getProjectList = ()=>http.get('/api/project/getProjectList')
 
 
 export const getProjectDetail = (params)=> http.get('/api/project/getProjectById',{params})
+
+export const  queryMoneyFlow = (params) => http.get('/api/userinfo/queryMoneyFlow',{params}) //资金明细
+export const  queryProfitLogqueryProfitLog = (params) => http.get('/api/userinfo/queryProfitLog',{params}) //收益记录
+
