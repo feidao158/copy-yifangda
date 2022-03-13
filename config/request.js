@@ -30,7 +30,7 @@ module.exports = (vm) => {
 	// 响应拦截
 	uni.$u.http.interceptors.response.use((response) => { /* 对响应成功做点什么 可使用async await 做异步操作*/
 		const data = response.data
-		console.log(response)
+
 		if(response.config.url === '/api/userinfo/userLogin') {
 			data['jboltjwt'] = response.header['jboltjwt']
 

@@ -14,3 +14,9 @@ export const  queryWithDrawRecord = (params) => http.get('/api/userinfo/queryWit
 export const queryExtensionRecord = (params) => http.get('/api/userinfo/queryExtensionLog',{params})
 
 export const queryInvestmentRecord = (params) => http.get('/api/userinfo/queryInvestmentLog',{params})
+
+
+export const getProjectList = ()=>http.get('/api/project/getProjectList')
+
+
+export const getProjectDetail = (params)=> http.get('/api/project/getProjectById',{params})
