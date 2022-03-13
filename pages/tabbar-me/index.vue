@@ -1,5 +1,6 @@
 <template>
 	<view>
+    <u-toast ref="uToast"></u-toast>
 		<view class="user-card">
 			<view class="account-info">
 				<view class="account-number">
@@ -11,32 +12,32 @@
 					<text>普通会员</text>
 				</view>
 			</view>
-			
+
 			<view style="display: flex;justify-content: center;">
 				<view class="amount-info">
 					<view class="money">24.00</view>
 					<view class="desc">账户余额（元）账户积分（0.00）</view>
 				</view>
 			</view>
-			
-			
+
+
 			<view class="footer-info">
 				<view class="footer-item">
 					<view class="desc-value">0</view>
 					<view class="desc-label">代收利息（元）</view>
 				</view>
-				
+
 				<view class="footer-item">
 					<view class="desc-value">0</view>
 					<view class="desc-label">代收本金（元）</view>
 				</view>
 			</view>
-			
+
 			<view class="action-list">
 				<view class="action-btn">充值</view>
 				<view class="action-btn" @click="Withdrawal(item)">提现</view>
 			</view>
-			
+
 			<view class="menu-list">
 				<view class="menu-item" v-for="(item,index) in listData" :key="index" @click="changeClick(index)">
 					<view class="icon">
@@ -47,19 +48,21 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="footer-action">
 				<view class="btn">安全退出</view>
 			</view>
-			
-			
-			
+
+
+
 		</view>
 	</view>
 </template>
 
 <script>
-	export default {
+import {signOfDay} from "../../config/api";
+
+export default {
 		data() {
 			return {
 				listData: [
@@ -90,7 +93,7 @@
 					{
 						icon: 'photo',
 						title: '提现记录'
-					}	
+					}
 				]
 			}
 		},
@@ -102,12 +105,28 @@
 			},
 			changeClick(index) {
 				switch(index){
+
+          case 0:
+            signOfDay()
+                .then(res=>{
+                  this.$refs.uToast.show({
+                    type: 'info',
+                    message: '签到成功'
+                  })
+                }).catch(err=>{
+              this.$refs.uToast.show({
+                type: 'info',
+                message: err.msg
+              })
+            })
+            break
+
 					case 1:
 						uni.navigateTo({
 							url: '../captial-record/index'
 						})
 						break
-					case 2: 
+					case 2:
 						uni.navigateTo({
 							url: '../investment-record/index'
 						})
@@ -133,24 +152,24 @@
 							})
 							break
 				}
-				
-				
+
+
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	
+
 	page {
 		background-color: #ddd;
 	}
-	
+
 	.user-card {
 		position: relative;
 		width: 100%;
 		height: 400rpx;
-		
+
 		background: linear-gradient(to bottom, #45c7f2, 45%, #592fca);
 		.account-info {
 			display: flex;
@@ -189,25 +208,25 @@
 				justify-content: space-around;
 				box-sizing: border-box;
 				padding: 10rpx 0;
-				
+
 			}
 		}
-		
+
 		.action-list {
-			
+
 			box-sizing: border-box;
 			padding: 0 20rpx;
 			margin-top: 150rpx;
 			background-color: #ddd;
-			
+
 			height: 100rpx;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			
+
 			.action-btn {
 				width: 340rpx;
-				
+
 				height: 68rpx;
 				line-height: 68rpx;
 				text-align: center;
@@ -216,8 +235,8 @@
 				border-radius: 8rpx;
 			}
 		}
-		
-		
+
+
 		.menu-list {
 			background-color: #fff;
 			.menu-item {
@@ -230,10 +249,10 @@
 			}
 			.title {
 				margin-left: 12rpx;
-				
+
 			}
 		}
-		
+
 		.footer-action {
 			display: flex;
 			justify-content: center;
@@ -249,8 +268,8 @@
 				line-height: 80rpx;
 				margin-top: 40rpx;
 			}
-			
+
 		}
-		
+
 	}
 </style>
