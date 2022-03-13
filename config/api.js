@@ -14,3 +14,6 @@ export const  queryWithDrawRecord = (params) => http.get('/api/userinfo/queryWit
 export const queryExtensionRecord = (params) => http.get('/api/userinfo/queryExtensionLog',{params})
 
 export const queryInvestmentRecord = (params) => http.get('/api/userinfo/queryInvestmentLog',{params})
+
+export const  queryMoneyFlow = (params) => http.get('/api/userinfo/queryMoneyFlow',{params}) //资金明细
+export const  queryProfitLogqueryProfitLog = (params) => http.get('/api/userinfo/queryProfitLog',{params}) //收益记录

@@ -46,11 +46,14 @@ export default {
   },
   methods: {
     queryDataList() {
-      this.queryInvestmentRecord(this.queryParams)
+      queryInvestmentRecord(this.queryParams)
         .then(res=>{
           this.dataList = this.dataList.concat(res.data.list)
         })
     }
+  },
+  onLoad() {
+    this.queryDataList()
   }
 }
 </script>

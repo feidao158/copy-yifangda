@@ -48,6 +48,9 @@ export default {
           this.dataList = this.dataList.concat(res.data.list)
         })
     }
+  },
+  onLoad() {
+    this.queryDataList()
   }
 }
 </script>
