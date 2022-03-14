@@ -12,23 +12,23 @@
 
 			<view class="menu-item" @click="menuClick(0)">
 				<view class="icon">
-					<image src="http://m.yifangfu.com/lib/20210810144341.jpg"></image>
+					<image src="/static/03-基金.png"></image>
 				</view>
 				<view class="text">静态基金</view>
 			</view>
 
       <view class="menu-item" @click="menuClick(1)">
         <view class="icon">
-          <image src="http://m.yifangfu.com/lib/20210810144341.jpg"></image>
+          <image src="/static/客服.png"></image>
         </view>
         <view class="text">在线客服</view>
       </view>
 
       <view class="menu-item" @click="menuClick(2)">
         <view class="icon">
-          <image src="http://m.yifangfu.com/lib/20210810144341.jpg"></image>
+          <image src="/static/风险查询.png"></image>
         </view>
-        <view class="text">静态基金</view>
+        <view class="text">风险控制</view>
       </view>
 
 
@@ -39,7 +39,7 @@
 				<view class="title">
 					会员专享
 				</view>
-				<view class="action">
+				<view class="action" @click="moreAction">
 					更多>
 				</view>
 			</view>
@@ -158,6 +158,11 @@
             console.log('11')
             break
         }
+      },
+      moreAction() {
+        uni.navigateTo({
+          url: '/pages/project-investment/index'
+        })
       }
 		}
 	}

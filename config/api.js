@@ -31,6 +31,10 @@ export const bindAlipay = (data) => http.post('/api/userinfo/addAlipay',data)
 
 export const getUserInfo = ()=> http.get('/api/userinfo/getUserinfo')
 
+export const getPreProjectInfo = (params)=> http.get('/api/project/goBuyProject',{params})
+
+export const submitProject = (params)=> http.get('/api/project/bidProject',{params})
+
 
 
 

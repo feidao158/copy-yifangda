@@ -119,7 +119,7 @@ export default {
 		},
 		confirmAction() {
 			uni.navigateTo({
-				url: '../just-bid/index'
+				url: `../just-bid/index?detailId=${this.detailId}`
 			})
 		},
     getProjectDetail() {

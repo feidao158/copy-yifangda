@@ -3,7 +3,6 @@
     "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
   },
   "pages": [
-    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
       "path": "pages/index/index",
       "style": {
@@ -85,26 +84,26 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "static/logo.png",
-        "selectedIconPath": "static/logo.png",
+        "iconPath": "static/首页.png",
+        "selectedIconPath": "static/首页 (1).png",
         "text": "首页"
       },
       {
         "pagePath": "pages/tabbar-investment/index",
-        "iconPath": "static/logo.png",
-        "selectedIconPath": "static/logo.png",
+        "iconPath": "static/投资.png",
+        "selectedIconPath": "static/投资 (1).png",
         "text": "投资"
       },
       {
         "pagePath": "pages/tabbar-find/index",
-        "iconPath": "static/logo.png",
-        "selectedIconPath": "static/logo.png",
+        "iconPath": "static/发现.png",
+        "selectedIconPath": "static/发现 (1).png",
         "text": "发现"
       },
       {
         "pagePath": "pages/tabbar-me/index",
-        "iconPath": "static/logo.png",
-        "selectedIconPath": "static/logo.png",
+        "iconPath": "static/我的.png",
+        "selectedIconPath": "static/我的 (1).png",
         "text": "我的"
       }
     ]

@@ -39,7 +39,7 @@
 			</view>
 
 			<view class="menu-list">
-				<view class="menu-item" v-for="(item,index) in listData" :key="index" @click="changeClick(index)">
+				<view class="menu-item" v-for="(item,index) in listData" :key="index" @click="changeClick(item.title)">
 					<view class="icon">
 						<u-icon size="60" :name="item.icon" color="#2979ff" ></u-icon>
 					</view>
@@ -68,43 +68,43 @@ export default {
         userInfo: {},
 				listData: [
 					{
-						icon: 'photo',
+						icon: 'integral',
 						title: '每日签到'
 					},
 					{
-						icon: 'photo',
+						icon: 'list',
 						title: '资金明细'
 					},
 					{
-						icon: 'photo',
+						icon: 'file-text',
 						title: '投资记录'
 					},
 					{
-						icon: 'photo',
+						icon: 'file-text',
 						title: '收益记录'
 					},
 					{
-						icon: 'photo',
+						icon: 'file-text',
 						title: '推广记录'
 					},
 					{
-						icon: 'photo',
+						icon: 'file-text',
 						title: '充值记录'
 					},
 					{
-						icon: 'photo',
+						icon: 'file-text',
 						title: '提现记录'
 					},
           {
             icon: 'photo',
             title: '绑定银行卡'
           },
+          // {
+          //   icon: 'photo',
+          //   title: '绑定支付宝'
+          // },
           {
-            icon: 'photo',
-            title: '绑定支付宝'
-          },
-          {
-            icon: 'photo',
+            icon: 'order',
             title: '退出登录'
           },
 				]
@@ -116,10 +116,10 @@ export default {
 				    url: '/pages/withdrawal/index'
 				});
 			},
-			changeClick(index) {
-				switch(index){
+			changeClick(title) {
+				switch(title){
 
-          case 0:
+          case '每日签到':
             signOfDay()
                 .then(res=>{
                   this.$refs.uToast.show({
@@ -134,48 +134,48 @@ export default {
             })
             break
 
-					case 1:
+					case '资金明细':
 						uni.navigateTo({
 							url: '../captial-record/index'
 						})
 						break
-					case 2:
+					case '投资记录':
 						uni.navigateTo({
 							url: '../investment-record/index'
 						})
 						break
-					case 3:
+					case '收益记录':
 					     uni.navigateTo({
 					     	url:'../revenue-record/index'
 					     })
 						 break
-					case 4:
+					case '推广记录':
 						uni.navigateTo({
 							url:'../promotion-record/index'
 						})
 						break
-					case 5:
+					case '充值记录':
 							uni.navigateTo({
 								url:'../recharge-record/index'
 							})
 							break
-					case 6:
+					case '提现记录':
 							uni.navigateTo({
 								url:'../withdrawal-record/index'
 							})
 							break
-          case 7:
+          case '绑定银行卡':
               uni.navigateTo({
                 url: '../bind-bank-card/index'
               })
               break
-          case 8:
+          case '绑定支付宝':
 
                 uni.navigateTo({
                   url: '/pages/bind-alipay/index'
                 })
                break
-          case 9:
+          case '退出登录':
             uni.clearStorageSync()
             uni.reLaunch({
               url: '/pages/login/index'

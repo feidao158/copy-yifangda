@@ -8,7 +8,7 @@
 			<view class="list" v-for="(item,index) in list" :key="index" @click="changeItem(item)">
 				<view class="list-item">
 					<view class="name">{{item.name}}</view>
-					<image :src="item.url" mode=""></image>
+					<image src="/static/通用.png" mode=""></image>
 				</view>
 			</view>
 		</view>
@@ -98,5 +98,5 @@
 		}
 	}
 	}
-	
+
 </style>
