@@ -104,7 +104,7 @@
               showCancel: false,
               success: function() {
                 console.log('xxx')
-                uni.redirectTo({
+                uni.reLaunch({
                   url: `/pages/login/index?username=${registerForm['username']}`
                 });
               }

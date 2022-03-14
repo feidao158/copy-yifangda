@@ -25,3 +25,12 @@ export const getProjectDetail = (params)=> http.get('/api/project/getProjectById
 export const  queryMoneyFlow = (params) => http.get('/api/userinfo/queryMoneyFlow',{params}) //资金明细
 export const  queryProfitLogqueryProfitLog = (params) => http.get('/api/userinfo/queryProfitLog',{params}) //收益记录
 
+export const bindBankCard = (data) => http.post('/api/userinfo/addBankCard',data)
+
+export const bindAlipay = (data) => http.post('/api/userinfo/addAlipay',data)
+
+export const getUserInfo = ()=> http.get('/api/userinfo/getUserinfo')
+
+
+
+

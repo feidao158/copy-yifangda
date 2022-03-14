@@ -17,6 +17,20 @@ const app = new Vue({
 
 require('./config/request.js')(app)
 
+Vue.prototype.$toast = function (content,title='tips'){
+
+    return new Promise((resolve,reject)=>{
+        uni.showModal({
+            title,
+            content,
+            showCancel: false,
+            success: function() {
+                resolve()
+            }
+        })
+    })
+}
+
 
 app.$mount()
 // #endif

@@ -26,6 +26,8 @@
 			</view>
 		</view>
 
+    <view class="register-action" @click="registerInfo">还没有账号？<text style="color:red;">立即注册</text></view>
+
 
 		<view class="footer-action">
 			<jj-btn name="登录" @click.native="loginHandler"></jj-btn>
@@ -56,6 +58,12 @@
 			'jj-btn': mainBtn
 		},
     methods: {
+
+      registerInfo() {
+        uni.navigateTo({
+          url: '/pages/register/index'
+        })
+      },
       loginHandler() {
         let formData = this.formData
         if (!formData.username) {
@@ -127,6 +135,12 @@
 			}
 		}
 	}
+
+  .register-action {
+    box-sizing: border-box;
+    padding: 20rpx;
+
+  }
 
 	.footer-action {
 		display: flex;

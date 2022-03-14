@@ -5,7 +5,7 @@
 			<view class="account-info">
 				<view class="account-number">
 					<text>我的账户:</text>
-					<text>18660403850</text>
+					<text>{{userInfo.name}}</text>
 				</view>
 				<view class="account-role">
 					<text>用户等级:</text>
@@ -15,8 +15,8 @@
 
 			<view style="display: flex;justify-content: center;">
 				<view class="amount-info">
-					<view class="money">24.00</view>
-					<view class="desc">账户余额（元）账户积分（0.00）</view>
+					<view class="money">{{parseInt(userInfo.balance)}}</view>
+					<view class="desc">账户余额（元）账户积分（{{userInfo.points}}）</view>
 				</view>
 			</view>
 
@@ -60,11 +60,12 @@
 </template>
 
 <script>
-import {signOfDay} from "../../config/api";
+import {signOfDay,getUserInfo} from "../../config/api";
 
 export default {
 		data() {
 			return {
+        userInfo: {},
 				listData: [
 					{
 						icon: 'photo',
@@ -93,7 +94,19 @@ export default {
 					{
 						icon: 'photo',
 						title: '提现记录'
-					}
+					},
+          {
+            icon: 'photo',
+            title: '绑定银行卡'
+          },
+          {
+            icon: 'photo',
+            title: '绑定支付宝'
+          },
+          {
+            icon: 'photo',
+            title: '退出登录'
+          },
 				]
 			}
 		},
@@ -151,11 +164,36 @@ export default {
 								url:'../withdrawal-record/index'
 							})
 							break
+          case 7:
+              uni.navigateTo({
+                url: '../bind-bank-card/index'
+              })
+              break
+          case 8:
+
+                uni.navigateTo({
+                  url: '/pages/bind-alipay/index'
+                })
+               break
+          case 9:
+            uni.clearStorageSync()
+            uni.reLaunch({
+              url: '/pages/login/index'
+            })
+            break
+
 				}
-
-
-			}
-		}
+			},
+      getUserInfo() {
+        getUserInfo()
+          .then(res=>{
+            this.userInfo = res.data
+          })
+      }
+		},
+    onLoad() {
+      this.getUserInfo()
+    }
 	}
 </script>
 
