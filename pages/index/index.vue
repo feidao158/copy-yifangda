@@ -9,12 +9,29 @@
 		</view>
 
 		<view class="menu-list">
-			<view class="menu-item" v-for="item in 3">
+
+			<view class="menu-item" @click="menuClick(0)">
 				<view class="icon">
 					<image src="http://m.yifangfu.com/lib/20210810144341.jpg"></image>
 				</view>
 				<view class="text">静态基金</view>
 			</view>
+
+      <view class="menu-item" @click="menuClick(1)">
+        <view class="icon">
+          <image src="http://m.yifangfu.com/lib/20210810144341.jpg"></image>
+        </view>
+        <view class="text">在线客服</view>
+      </view>
+
+      <view class="menu-item" @click="menuClick(2)">
+        <view class="icon">
+          <image src="http://m.yifangfu.com/lib/20210810144341.jpg"></image>
+        </view>
+        <view class="text">静态基金</view>
+      </view>
+
+
 		</view>
 
 		<view class="main-content">
@@ -109,6 +126,7 @@
 		},
 		onLoad() {
 			this.getProjectList()
+
 		},
 		methods: {
 			change() {
@@ -128,7 +146,19 @@
 				uni.navigateTo({
 					url: `/pages/investment-detail/index?id=${id}`
 				})
-			}
+			},
+      menuClick(index) {
+        switch (index) {
+          case 1:
+
+            // window.location.href('https://chatlink-new.meiqia.cn/widget/standalone.html?eid=97f3296f3131f1f24d8055ffb8769587\n','_blank')
+            uni.navigateTo({
+              url: '/pages/chat/index'
+            })
+            console.log('11')
+            break
+        }
+      }
 		}
 	}
 </script>

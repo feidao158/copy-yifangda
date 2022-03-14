@@ -66,6 +66,9 @@
     },
     {
       "path": "pages/bind-alipay/index"
+    },
+    {
+      "path": "pages/chat/index"
     }
   ],
   "globalStyle": {

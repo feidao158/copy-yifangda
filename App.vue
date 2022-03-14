@@ -1,11 +1,12 @@
 <script>
+
 	export default {
 		onLaunch: function() {
 
       let tokenInfo = uni.getStorageSync('jboltjwt')
-	  
+
       if (tokenInfo==null || tokenInfo.length==0) {
-		  console.log('login..')
+        console.log('login..')
         uni.reLaunch({
           url: '/pages/login/index'
         })
@@ -14,6 +15,7 @@
           url: '/pages/index/index'
         })
       }
+
 
 		},
 		onShow: function() {
