@@ -1,20 +1,41 @@
 <template>
   <view>
     <view class="card-list">
-      <view class="card-item" v-for="item in 6">
+      <view class="card-item" v-for="(item,index) in projectList" :key="index">
         <view class="title">
           易方达中证全指家用电器指数A
         </view>
 
         <view class="info-list">
-          <view class="info-item" v-for="item in 3">
+
+          <view class="info-item">
             <view class="label">
-              2.4%
+              {{item.proj_bonus_rate}}
             </view>
             <view class="value">
               日化利率
             </view>
           </view>
+
+          <view class="info-item">
+            <view class="label">
+              {{item.start_money}}
+            </view>
+            <view class="value">
+              起投金额
+            </view>
+          </view>
+
+          <view class="info-item">
+            <view class="label">
+              {{item.investment_cycle}}天
+            </view>
+            <view class="value">
+              投资周期
+            </view>
+          </view>
+
+
         </view>
 
         <view class="desc">
@@ -28,7 +49,7 @@
 
           </view>
           <view class="btn">
-            <u-button text="立即投资" size="mini" type="primary"></u-button>
+            <u-button text="立即投资" size="mini" type="primary" @click="navigateInfo(item.id)"></u-button>
 
           </view>
         </view>
@@ -43,11 +64,28 @@
 
 
 <script>
+import {getProjectList} from "../../config/api";
+
 export default {
   data() {
     return {
-
+      projectList: []
     }
+  },
+  methods: {
+    getProjectList() {
+      getProjectList().then(res=>{
+        this.projectList = res.data
+      })
+    },
+    navigateInfo(id) {
+      uni.navigateTo({
+        url: `/pages/investment-detail/index?id=${id}`
+      })
+    }
+  },
+  onLoad() {
+    this.getProjectList()
   }
 }
 </script>

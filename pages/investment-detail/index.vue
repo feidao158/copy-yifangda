@@ -1,7 +1,7 @@
 <template>
 	<view style="padding: 20rpx;">
 		<view class="banner">
-			<image src="../../static/logo.png"></image>
+			<image src="/static/update/20210731013505.jpg"></image>
 		</view>
 
 		<view class="main-title">{{projectInfo.name}}</view>
@@ -71,19 +71,122 @@
 			    <u-tabs :list="[{name: '投资详情'},{name: '项目资料'}]"  @click="tabHandler" itemStyle="padding-left: 15px; padding-right: 15px; height: 34px;width: 40%"></u-tabs>
 
 				<view class="table-info" v-if="tabActiveIndex==0">
-					<view class="table-item" v-for="item in 5">
+
+
+					<view class="table-item">
 						<view class="label">
 							项目名称
 						</view>
 						<view class="value">
-							易方达医疗保健行业混合
+							{{projectInfo.name}}
 						</view>
 					</view>
-				</view>
+
+          <view class="table-item">
+            <view class="label">
+              项目金额
+            </view>
+            <view class="value">
+              {{projectInfo.scale}}
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              每天分红
+            </view>
+            <view class="value">
+              按每天{{projectInfo.projBonusRate}}%的收益(保本保息)
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              投资金额
+            </view>
+            <view class="value">
+              最低起投{{projectInfo.startMoney}}元(限买1份)
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              项目期限
+            </view>
+            <view class="value">
+              {{projectInfo.investmentCycle}}个自然日
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              收益计算
+            </view>
+            <view class="value">
+              每天分红{{projectInfo.bonus}}元*1天=总收益20元
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              还款方式
+            </view>
+            <view class="value">
+             每日返息，到期还本节假日照常收益
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              结算时间
+            </view>
+            <view class="value">
+              当天15点前投资，当天15点系统自动计息结算收益（例如在15：00成功投资，则在下个自然日15：00收到分红），到期系统将当日分红和产品本金一起返还到您的会员账号中
+            </view>
+          </view>
+
+
+          <view class="table-item">
+            <view class="label">
+              可投金额
+            </view>
+            <view class="value">
+              投资期间只要产品未投满，投资者均可自由投资</view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              安全保障
+            </view>
+            <view class="value">
+              中国民生银行股份有限公司对平台上的每一笔投资提供100％本金保障，平台设立风险备用金，对本金承诺全额垫付；
+            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              项目概述
+            </view>
+            <view class="value">
+              本项目筹集资金{{projectInfo.scale}}元人民币投资本项目（按每日分红{{projectInfo.bonus}}元/天）项目周期为{{projectInfo.investmentCycle}}个自然日，所筹集资金用于该项目直投运作，作为投资者分红固定且无任何风险，所操作一切风险都由公司与担保公司一律承担，投资者不需要承担任何风险。            </view>
+          </view>
+
+          <view class="table-item">
+            <view class="label">
+              推荐奖励
+            </view>
+            <view class="value">
+              在会员中心下方的邀请好友”里转发您的专属推广二维码到朋友圈，通过此邀请二维码注册成功的即为您的一级会员，其充值并成功投资任意项目，您都可以得到其投资金额5％的推厂广奖励，由系统自动赠送！
+            </view>
+          </view>
+
+
+
+        </view>
 
 				<view class="project-info" v-if="tabActiveIndex==1">
-					中纪委官网12日消息，中央纪委国家监委驻国家安全部纪检监察组原组长刘彦平涉嫌严重违纪违法，目前正接受中央纪委国家监委纪律审查和监察调查。
-					刘彦平，出生于1955年8月，1974年4月参加工作。目前，他还是第十三届全国政协委员。
+          本基金主要投资于标的数即中证基建工程指数的成份股、备选成份股（含存托凭证）。此外为更好地实现投资目标，本基金可少量按于非成份股（包括中小板创业板及其他经中国证监会粮准上市的股、存托凭证）、分、板证、股期批，货币市场工具及中国证监会允许基金投资的其他金融工具，但须符台中国证监会的相关规定
+          基金的投资组合比例为本基金的股资产比例不低于基金产的80，其中投资于标的指数成份股和备选成份的产不低于非现金基宝产的90每个交易白日终在扣除股指期货合约需纳的交易保正后保持不低基金销产净值5的现金或到期日在一年以内的政府债券，（详情可调基金合同描说明书等文件）
 				</view>
 
 		</view>
@@ -193,6 +296,8 @@ export default {
 					flex: 3;
 					border: 1rpx solid #333333;
 					padding: 20rpx;
+          display: flex;
+          align-items: center;
 
 				}
 				.value {

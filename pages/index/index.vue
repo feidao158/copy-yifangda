@@ -12,21 +12,21 @@
 
 			<view class="menu-item" @click="menuClick(0)">
 				<view class="icon">
-					<image src="/static/03-基金.png"></image>
+					<image src="/static/update/20210810165219.jpeg"></image>
 				</view>
 				<view class="text">静态基金</view>
 			</view>
 
       <view class="menu-item" @click="menuClick(1)">
         <view class="icon">
-          <image src="/static/客服.png"></image>
+          <image src="/static/update/20210810144341.jpg"></image>
         </view>
         <view class="text">在线客服</view>
       </view>
 
       <view class="menu-item" @click="menuClick(2)">
         <view class="icon">
-          <image src="/static/风险查询.png"></image>
+          <image src="/static/update/20210723192909.png"></image>
         </view>
         <view class="text">风险控制</view>
       </view>
@@ -116,9 +116,10 @@
 		data() {
 			return {
 				list1: [
-					'https://cdn.uviewui.com/uview/swiper/swiper1.png',
-					'https://cdn.uviewui.com/uview/swiper/swiper2.png',
-					'https://cdn.uviewui.com/uview/swiper/swiper3.png',
+					'/static/update/20210731225333.jpg',
+					'/static/update/20210801001404.jpg',
+					'/static/update/20210801002407.jpg',
+					'/static/update/20210801003046.jpg',
 				],
 				text1: '投资充值请联系客服！投资充值请联系客服！投资充值请联系客服！',
 				projectList: []
