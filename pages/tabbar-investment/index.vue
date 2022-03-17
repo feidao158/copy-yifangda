@@ -1,13 +1,13 @@
 <template>
 	<view>
 		<view class="banner-header">
-			<image src="http://m.yifangfu.com/lib/icon_sercuity_bg.jpg"></image>
+			<image src="/static/icon_sercuity_bg.jpg"></image>
 		</view>
 
 		<view class="card-list">
 			<view class="card-item" v-for="item in 2" @click="openDetail">
 				<view class="icon">
-					<image src="http://m.yifangfu.com/lib/vipzx2.png"></image>
+					<image src="/static/vipzx2.png"></image>
 				</view>
 
 
@@ -20,7 +20,7 @@
 
 		<scroll-view scroll-x="true" class="activity-list">
 			<view class="activity-item" v-for="item in 3">
-				<image src="http://m.yifangfu.com/lib/list23.jpg"></image>
+				<image src="/static/list23.jpg"></image>
 			</view>
 		</scroll-view>
 

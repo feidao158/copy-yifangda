@@ -3,7 +3,8 @@ module.exports = (vm) => {
     // 初始化请求配置
     uni.$u.http.setConfig((config) => {
         /* config 为默认全局配置*/
-        config.baseURL = 'http://154.82.110.96:9202'; /* 根域名 */
+        config.baseURL = 'https://api.efundar.com'; /* 根域名 */
+		config.sslVerify = false
         return config
     })
 

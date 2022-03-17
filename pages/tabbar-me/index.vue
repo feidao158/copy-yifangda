@@ -1,6 +1,6 @@
 <template>
 	<view>
-    <u-toast ref="uToast"></u-toast>
+		<u-toast ref="uToast"></u-toast>
 		<view class="user-card">
 			<view class="account-info">
 				<view class="account-number">
@@ -41,15 +41,21 @@
 			<view class="menu-list">
 				<view class="menu-item" v-for="(item,index) in listData" :key="index" @click="changeClick(item.title)">
 					<view class="icon">
-						<u-icon size="60" :name="item.icon" color="#2979ff" ></u-icon>
+						<u-icon size="60" :name="item.icon" color="#2979ff"></u-icon>
 					</view>
-					<view class="title">
-						{{item.title}}
+					<view class="title-info">
+						<view class="title">
+              {{item.title}}
+            </view>
+
+            <view class="action">
+              <u-icon name="arrow-right" size="26"/>
+            </view>
 					</view>
 				</view>
 			</view>
 
-			<view class="footer-action">
+				<view class="footer-action">
 				<view class="btn">安全退出</view>
 			</view>
 
@@ -60,14 +66,16 @@
 </template>
 
 <script>
-import {signOfDay,getUserInfo} from "../../config/api";
+	import {
+		signOfDay,
+		getUserInfo
+	} from "../../config/api";
 
-export default {
+	export default {
 		data() {
 			return {
-        userInfo: {},
-				listData: [
-					{
+				userInfo: {},
+				listData: [{
 						icon: 'integral',
 						title: '每日签到'
 					},
@@ -95,44 +103,44 @@ export default {
 						icon: 'file-text',
 						title: '提现记录'
 					},
-          {
-            icon: 'photo',
-            title: '绑定银行卡'
-          },
-          // {
-          //   icon: 'photo',
-          //   title: '绑定支付宝'
-          // },
-          {
-            icon: 'order',
-            title: '退出登录'
-          },
+					{
+						icon: 'photo',
+						title: '绑定银行卡'
+					},
+					{
+						icon: 'photo',
+						title: '实名认证'
+					},
+					{
+						icon: 'order',
+						title: '退出登录'
+					},
 				]
 			}
 		},
-		methods:{
+		methods: {
 			Withdrawal(item) {
 				uni.navigateTo({
-				    url: '/pages/withdrawal/index'
+					url: '/pages/withdrawal/index'
 				});
 			},
 			changeClick(title) {
-				switch(title){
+				switch (title) {
 
-          case '每日签到':
-            signOfDay()
-                .then(res=>{
-                  this.$refs.uToast.show({
-                    type: 'info',
-                    message: '签到成功'
-                  })
-                }).catch(err=>{
-              this.$refs.uToast.show({
-                type: 'info',
-                message: err.msg
-              })
-            })
-            break
+					case '每日签到':
+						signOfDay()
+							.then(res => {
+								this.$refs.uToast.show({
+									type: 'info',
+									message: '签到成功'
+								})
+							}).catch(err => {
+								this.$refs.uToast.show({
+									type: 'info',
+									message: err.msg
+								})
+							})
+						break
 
 					case '资金明细':
 						uni.navigateTo({
@@ -145,60 +153,68 @@ export default {
 						})
 						break
 					case '收益记录':
-					     uni.navigateTo({
-					     	url:'../revenue-record/index'
-					     })
-						 break
+						uni.navigateTo({
+							url: '../revenue-record/index'
+						})
+						break
 					case '推广记录':
 						uni.navigateTo({
-							url:'../promotion-record/index'
+							url: '../promotion-record/index'
 						})
 						break
 					case '充值记录':
-							uni.navigateTo({
-								url:'../recharge-record/index'
-							})
-							break
+						uni.navigateTo({
+							url: '../recharge-record/index'
+						})
+						break
 					case '提现记录':
-							uni.navigateTo({
-								url:'../withdrawal-record/index'
-							})
-							break
-          case '绑定银行卡':
-              uni.navigateTo({
-                url: '../bind-bank-card/index'
-              })
-              break
-          case '绑定支付宝':
+						uni.navigateTo({
+							url: '../withdrawal-record/index'
+						})
+						break
+					case '绑定银行卡':
+						uni.navigateTo({
+							url: '../bind-bank-card/index'
+						})
+						break
+					case '绑定支付宝':
 
-                uni.navigateTo({
-                  url: '/pages/bind-alipay/index'
-                })
-               break
-          case '退出登录':
-            uni.clearStorageSync()
-            uni.reLaunch({
-              url: '/pages/login/index'
-            })
-            break
+						uni.navigateTo({
+							url: '/pages/bind-alipay/index'
+						})
+						break
+					case '退出登录':
+						uni.clearStorageSync()
+						uni.reLaunch({
+							url: '/pages/login/index'
+						})
+						break
+					case '实名认证':
+
+						uni.navigateTo({
+							url: '/pages/real-name-auth/index'
+						})
+						break
 
 				}
 			},
-      getUserInfo() {
-        getUserInfo()
-          .then(res=>{
-            this.userInfo = res.data
-          })
-      }
+			getUserInfo() {
+				getUserInfo()
+					.then(res => {
+						this.userInfo = res.data
+					})
+			}
 		},
-    onLoad() {
+		onLoad() {
+			this.getUserInfo()
+		},
+    onShow() {
       this.getUserInfo()
     }
 	}
 </script>
 
 <style lang="scss" scoped>
-
 	page {
 		background-color: #ddd;
 	}
@@ -209,6 +225,7 @@ export default {
 		height: 400rpx;
 
 		background: linear-gradient(to bottom, #45c7f2, 45%, #592fca);
+
 		.account-info {
 			display: flex;
 			justify-content: space-between;
@@ -217,25 +234,30 @@ export default {
 			font-size: 22rpx;
 			color: #fff;
 		}
+
 		.amount-info {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			color: #fff;
+
 			.money {
 				font-size: 60rpx;
 			}
+
 			.desc {
 				margin-top: 20rpx;
 			}
 		}
+
 		.footer-info {
 			position: absolute;
 			bottom: 0rpx;
 			height: 100rpx;
 			width: 100%;
-			background: rgba(255,255,255,.2);
+			background: rgba(255, 255, 255, .2);
 			display: flex;
+
 			.footer-item {
 				color: #fff;
 				font-size: 22rpx;
@@ -279,16 +301,37 @@ export default {
 			background-color: #fff;
 			.menu-item {
 				display: flex;
+        align-items: center;
 				height: 80rpx;
 				align-items: center;
 				box-sizing: border-box;
-				padding: 20rpx;
-				border-bottom: 1rpx solid #DCDFE6;
-			}
-			.title {
-				margin-left: 12rpx;
+				padding: 32rpx;
+
+        .icon {
+          padding-left: 20rpx;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .title-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          .title {
+            padding-left: 28rpx;
+            font-size: 24rpx;
+          }
+
+          .action {
+            padding-right: 20rpx;
+          }
+
+        }
 
 			}
+
 		}
 
 		.footer-action {
@@ -296,6 +339,7 @@ export default {
 			justify-content: center;
 			box-sizing: border-box;
 			padding: 0 40rpx;
+
 			.btn {
 				background-color: #2C405A;
 				color: #fff;

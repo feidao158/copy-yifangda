@@ -35,6 +35,15 @@ export const getPreProjectInfo = (params)=> http.get('/api/project/goBuyProject'
 
 export const submitProject = (params)=> http.get('/api/project/bidProject',{params})
 
+export const checkRealName = (data) => http.post('/api/userinfo/checkRealName',data)
+
+
+export const checkBalance = ()=> http.get('/api/userinfo/checkBalance')
+
+
+export const getWallectList = ()=> http.get('/api/userinfo/queryWallectList')
+
+export const confirmWithDraw = (data)=> http.post('/api/userinfo/goWithDraw',data)
 
 
 

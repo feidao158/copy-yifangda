@@ -14,7 +14,7 @@
 				</view>
 
 				<view class="value">
-					￥500万元
+					￥<text class="blue-text">{{parseInt(projectInfo.scale)}}</text>元
 				</view>
 			</view>
 
@@ -24,7 +24,7 @@
         </view>
 
         <view class="value">
-          {{parseInt(projectInfo.bonus)}}元起
+          <text class="blue-text">{{parseInt(projectInfo.bonus)}}</text>元起
         </view>
       </view>
 
@@ -35,7 +35,7 @@
         </view>
 
         <view class="value">
-          {{projectInfo.investmentCycle}}天
+          <text class="blue-text">{{projectInfo.investmentCycle}}</text>天
         </view>
       </view>
 
@@ -63,7 +63,7 @@
 				<view class="value">本金保障</view>
 			</view>
 
-			<u-line-progress :percentage="30" activeColor="#3582b3" height="32"></u-line-progress>
+			<u-line-progress :percentage="projectInfo.process" activeColor="#3582b3" height="32"></u-line-progress>
 		</view>
 		<!-- end.. -->
 
@@ -86,7 +86,7 @@
             <view class="label">
               项目金额
             </view>
-            <view class="value">
+            <view class="value red-text">
               {{projectInfo.scale}}
             </view>
           </view>
@@ -95,8 +95,8 @@
             <view class="label">
               每天分红
             </view>
-            <view class="value">
-              按每天{{projectInfo.projBonusRate}}%的收益(保本保息)
+            <view class="value red-text">
+              按每天<text >{{projectInfo.projBonusRate}}</text>%的收益(保本保息)
             </view>
           </view>
 
@@ -105,7 +105,7 @@
               投资金额
             </view>
             <view class="value">
-              最低起投{{projectInfo.startMoney}}元(限买1份)
+              <text class="red-text">最低起投{{projectInfo.startMoney}}元</text>(限买<text class="red-text">1</text>份)
             </view>
           </view>
 
@@ -114,7 +114,7 @@
               项目期限
             </view>
             <view class="value">
-              {{projectInfo.investmentCycle}}个自然日
+             <text class="red-text"> {{projectInfo.investmentCycle}}个</text>自然日
             </view>
           </view>
 
@@ -168,7 +168,7 @@
               项目概述
             </view>
             <view class="value">
-              本项目筹集资金{{projectInfo.scale}}元人民币投资本项目（按每日分红{{projectInfo.bonus}}元/天）项目周期为{{projectInfo.investmentCycle}}个自然日，所筹集资金用于该项目直投运作，作为投资者分红固定且无任何风险，所操作一切风险都由公司与担保公司一律承担，投资者不需要承担任何风险。            </view>
+              本项目筹集资金<text class="red-text">{{projectInfo.scale}}</text>元人民币投资本项目（按每日分红{{projectInfo.bonus}}元/天）项目周期为{{projectInfo.investmentCycle}}个自然日，所筹集资金用于该项目直投运作，作为投资者分红固定且无任何风险，所操作一切风险都由公司与担保公司一律承担，投资者不需要承担任何风险。            </view>
           </view>
 
           <view class="table-item">
@@ -240,6 +240,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+	
+	.blue-text {
+		color: #3F7FBF;
+	}
+	
+	.red-text {
+		color: red;
+	}
+	
 	.banner {
 		width: 100%;
 		height: 340rpx;

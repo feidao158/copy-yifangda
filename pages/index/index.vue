@@ -89,9 +89,6 @@
 						</view>
 
 
-
-
-
 					</view>
 
 					<view style="display: flex;justify-content: center;margin-top: 60rpx;">
@@ -151,13 +148,16 @@
       menuClick(index) {
         switch (index) {
           case 1:
-
-            // window.location.href('https://chatlink-new.meiqia.cn/widget/standalone.html?eid=97f3296f3131f1f24d8055ffb8769587\n','_blank')
-            uni.navigateTo({
+			uni.navigateTo({
               url: '/pages/chat/index'
             })
             console.log('11')
             break
+		  case 2:
+			uni.navigateTo({
+				url: '/pages/tabbar-find/risk-control'
+			})
+			break
         }
       },
       moreAction() {

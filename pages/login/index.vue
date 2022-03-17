@@ -3,7 +3,7 @@
     <u-toast ref="uToast"></u-toast>
 
     <view class="logo">
-			<image src="../../static/logo.png"></image>
+			<image src="/static/bca8b089f0de871df4647dab9d9ec026.jpg"></image>
 		</view>
 
 		<view class="input-list">

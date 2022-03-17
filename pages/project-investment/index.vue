@@ -3,7 +3,7 @@
     <view class="card-list">
       <view class="card-item" v-for="(item,index) in projectList" :key="index">
         <view class="title">
-          易方达中证全指家用电器指数A
+          {{item.name}}
         </view>
 
         <view class="info-list">
@@ -39,13 +39,13 @@
         </view>
 
         <view class="desc">
-          项目规模：100000万元 每日返息，到期还本
+          项目规模：{{parseInt(item.scale)}}元 每日返息，到期还本
         </view>
 
 
         <view class="action">
           <view class="bar">
-            <u-line-progress :percentage="30" activeColor="#3582b3" height="26"></u-line-progress>
+            <u-line-progress :percentage="item.process" activeColor="#3582b3" height="26"></u-line-progress>
 
           </view>
           <view class="btn">

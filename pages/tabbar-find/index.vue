@@ -1,14 +1,14 @@
 <template>
 	<view class="find-page">
 		<view class="banner-image">
-			<image src="http://m.yifangfu.com/lib/icon_sercuity_bg.jpg"></image>
+			<image src="/static/icon_sercuity_bg.jpg"></image>
 		</view>
 		<view class="container">
 			<view class="list-title">最新咨询</view>
 			<view class="list" v-for="(item,index) in list" :key="index" @click="changeItem(item)">
 				<view class="list-item">
 					<view class="name">{{item.name}}</view>
-					<image src="/static/通用.png" mode=""></image>
+					<image src="/static/tongyong.png" mode=""></image>
 				</view>
 			</view>
 		</view>
@@ -22,31 +22,52 @@
 				list: [
 					{
 						name: '风险控制',
-						url: '/static/logo.png'
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/risk-control'
 					},
 					{
 						name: '资金安全',
-						url: '/static/logo.png'
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/money-safe'
 					},
 					{
 						name: '企业资质',
-						url: '/static/logo.png'
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/company-info'
 					},
 					{
 						name: '公司荣誉',
-						url: '/static/logo.png'
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/company-hon'
 					},
 					{
 						name: '公司简介',
-						url: '/static/logo.png'
-					}
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/company-desc'
+					},
+					{
+						name: '公司业务',
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/company-service'
+					},
+					{
+						name: '公司文化',
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/company-cultural'
+					},
+					{
+						name: '经典案例',
+						url: '/static/logo.png',
+						path: '/pages/tabbar-find/classic'
+					},
 					]
 			}
 		},
 		methods:{
 			changeItem(item) {
+				console.log('xxx')
 				uni.navigateTo({
-				    url: '/pages/tabbar-find/detail'
+				    url: item.path
 				});
 			}
 		}
